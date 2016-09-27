@@ -7,21 +7,24 @@ var tsconf = require('./tsconfig.json');
 
 
 // Move all the npm-managed libs into dist
-// Sadly must be done publish
+// Not needed if your index.html resides at root level
 gulp.task('move-nodemodules', function() {
     var npmModules = [
         'node_modules/core-js/**', 
         'node_modules/zone.js/**', 
         'node_modules/reflect-metadata/**', 
+        'node_modules/@angular/**',
+        'node_modules/angular2-in-memory-web-api/**',
+        'node_modules/rxjs/**',
         'node_modules/systemjs/**'
     ]; 
     gulp.src(npmModules, {base: 'node_modules'})
-        .pipe(gulp.dest('dist/libs'));
+        .pipe(gulp.dest('dist/libs'))
 });
 
-// Move all .html files, preserve paths
-gulp.task('move-html', function() {
-    gulp.src('src/**/*.html')
+// Move all static (.html and .js) files, preserve paths
+gulp.task('move-static', function() {
+    gulp.src(['src/**/*.html', 'systemjs.config.js'])
         .pipe(gulp.dest('dist'))
 });
 
@@ -38,7 +41,7 @@ gulp.task('compile-scss', function() {
 gulp.task('compile-typescript', function(){
     return gulp.src('src/**/*.ts')
         .pipe(ts(tsconf.compilerOptions))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
 });
 
 //
@@ -46,10 +49,10 @@ gulp.task('compile-typescript', function(){
 //
 
 // Default task is watcher
-gulp.task('default', ['move-nodemodules', 'move-html', 'compile-scss', 'compile-typescript'], function() {
+gulp.task('default', ['move-nodemodules', 'move-static', 'compile-scss', 'compile-typescript'], function() {
     // Specifically, no need to watch nodemodules
     // But all other dev stuff is watched:
-    gulp.watch('./src/**/*.html', ['move-html']);
+    gulp.watch('./src/**/*.html', ['move-static']);
     gulp.watch('./src/scss/*.scss', ['compile-scss']);
     gulp.watch('./src/**/*.ts', ['compile-typescript']);
 });
