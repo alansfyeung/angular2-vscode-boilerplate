@@ -4,11 +4,14 @@
   "description": "Angular 2 VS Code boilerplate",
   "main": "gulpfile.js",
   "dependencies": {
-    "typescript": "^2.0.3"
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.8",
+    "systemjs": "^0.19.39",
+    "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "typescript": "^2.0.3",
     "gulp": "^3.9.1",
-    "gulp-less": "^3.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-typescript": "^3.0.1"
   },
