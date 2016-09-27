@@ -1,7 +1,7 @@
 {
-  "name": "pw-client-engagement-tool",
+  "name": "angular2-vscode-boilerplate",
   "version": "0.1.0",
-  "description": "POC web app for PW client engagement",
+  "description": "Angular 2 VS Code boilerplate",
   "main": "gulpfile.js",
   "dependencies": {
     "typescript": "^2.0.3"
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.btfin.com/~m037230/pw-client-engagement-tool.git"
+    "url": "ssh://git@github.com:alansfyeung/angular2-vscode-boilerplate.git"
   },
   "keywords": [
-    "pw",
-    "client",
-    "angular"
+    "typescript",
+    "angular",
+    "angular2"
   ],
   "author": "Alan Yeung",
   "license": "UNLICENSED"
