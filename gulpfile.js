@@ -49,7 +49,7 @@ gulp.task('compile-typescript', function(){
 gulp.task('default', ['move-nodemodules', 'move-html', 'compile-scss', 'compile-typescript'], function() {
     // Specifically, no need to watch nodemodules
     // But all other dev stuff is watched:
-    gulp.watch('./src/**/*.html', ['move']);
+    gulp.watch('./src/**/*.html', ['move-html']);
     gulp.watch('./src/scss/*.scss', ['compile-scss']);
     gulp.watch('./src/**/*.ts', ['compile-typescript']);
 });
