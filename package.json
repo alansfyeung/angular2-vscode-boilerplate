@@ -4,12 +4,14 @@
   "description": "POC web app for PW client engagement",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-less": "^3.1.0",
-    "gulp-typescript": "^3.0.1",
     "typescript": "^2.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-typescript": "^3.0.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
