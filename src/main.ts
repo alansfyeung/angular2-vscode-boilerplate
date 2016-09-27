@@ -1,1 +1,0 @@
-// main.ts is your [bootstrap file](https://angular.io/docs/ts/latest/guide/style-guide.html#!#02-05)
