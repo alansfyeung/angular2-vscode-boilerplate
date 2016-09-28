@@ -19,7 +19,7 @@ gulp.task('move-nodemodules', function() {
         'node_modules/systemjs/**'
     ]; 
     gulp.src(npmModules, {base: 'node_modules'})
-        .pipe(gulp.dest('dist/libs'))
+        .pipe(gulp.dest('dist/lib'))
 });
 
 // Move all static (.html and .js) files, preserve paths
