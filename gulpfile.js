@@ -8,17 +8,19 @@ var tsconf = require('./tsconfig.json');
 
 // Move all the npm-managed libs into dist
 // Not needed if your index.html resides at root level
-gulp.task('move-nodemodules', function() {
+gulp.task('move-libs', function() {
     var npmModules = [
         'node_modules/core-js/**', 
         'node_modules/zone.js/**', 
         'node_modules/reflect-metadata/**', 
         'node_modules/@angular/**',
-        'node_modules/angular2-in-memory-web-api/**',
         'node_modules/rxjs/**',
+        'node_modules/angular2-in-memory-web-api/**',
         'node_modules/systemjs/**'
     ]; 
     gulp.src(npmModules, {base: 'node_modules'})
+        .pipe(gulp.dest('dist/lib'))
+    gulp.src(['src/lib/**'])
         .pipe(gulp.dest('dist/lib'))
 });
 
@@ -49,7 +51,7 @@ gulp.task('compile-typescript', function(){
 //
 
 // Default task is watcher
-gulp.task('default', ['move-nodemodules', 'move-static', 'compile-scss', 'compile-typescript'], function() {
+gulp.task('default', ['move-libs', 'move-static', 'compile-scss', 'compile-typescript'], function() {
     // Specifically, no need to watch nodemodules
     // But all other dev stuff is watched:
     gulp.watch('./src/**/*.html', ['move-static']);
