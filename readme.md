@@ -22,24 +22,29 @@ This will download Angular2 and its dependencies, and it should also install dev
 
 ## Builds, watching, compiling/transpiling
 
-Just make sure all your Angular2 stuff – TypeScript files, HTML index file and HTML templates, and SCSS source – resides under the `/src` folder following the [folder structure style guidelines](https://angular.io/docs/ts/latest/guide/style-guide.html#!#04-06). That is, we expect a `index.html`, `main.ts`, and various componentised folders. 
+Just make sure all your Angular2 stuff – TypeScript files, HTML index file and HTML templates, and SCSS source – resides under the */src* folder following the [folder structure style guidelines](https://angular.io/docs/ts/latest/guide/style-guide.html#!#04-06). That is, we expect a *index.html*, *main.ts*, and various componentised folders. 
 
-> One exception is the stylesheets; for this boilerplate we consolidate styles into a singular compiled SCSS bootstrap file, rather than the style guide's separate-CSS-per-component. Place your bootstrap SCSS file into `/src/scss`.
+> One exception is the stylesheets; for this boilerplate we consolidate styles into a singular compiled SCSS bootstrap file, rather than the style guide's separate-CSS-per-component. Place your bootstrap SCSS file into */src/scss*.
 
 ### Starting the build/watch from VS Code
 
-The preconfigured *tasks.json* task will trigger a Gulp watch that publishes stuff into `/dist`. To activate this task from VS Code, press **CTRL+SHIFT+B** or use Command Palette (**CTRL+SHIFT+P**) then search for 'build'.
+The preconfigured *tasks.json* task will trigger a Gulp watch that publishes stuff into */dist*. To activate this task from VS Code, press **CTRL+SHIFT+B** or use Command Palette (**CTRL+SHIFT+P**) then search 'build'.
 
 The outputs are:
 
 + Required Angular libs will be copied (once-off)
 + Static files will be copied (once-off) 
-+ All `.ts` files in `/src` will be transpiled then copied – and watched for updates
-+ The `.scss` files in `/src/scss` will be compiled then copied – and watched for updates
++ All *.ts* files in */src* will be transpiled then copied – and watched for updates
++ The *.scss* files in */src/scss* will be compiled then copied – and watched for updates
 
 ### Stopping the watch from VS Code
 
 The task is long-running since it watches for source files. To stop the task, use the Command Palette (**CTRL+SHIFT+P**) then search 'terminate'.
+
+### Configuring additional libs to be copied via gulpfile
+
+Selected libs from */node_modules*, and everything under */src/lib*, are both copied over to */dest/lib* under the *move-libs* gulpfile task. By default, the selective copy from */node_modules* avoids accidentally publishing dev deps.
+
 
 ## Useful Angular2 primer links
 
