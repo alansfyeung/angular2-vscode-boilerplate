@@ -34,7 +34,7 @@ gulp.task('move-static', function() {
 // Expected you'll have a style.scss or a main.scss which
 // then includes ./partials/_partialfile.scss etc 
 gulp.task('compile-scss', function() {
-    gulp.src('src/scss/*.scss')
+    gulp.src('src/scss/**/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('dist/css'))
 });
