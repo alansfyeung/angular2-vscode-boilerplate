@@ -55,6 +55,6 @@ gulp.task('default', ['move-libs', 'move-static', 'compile-scss', 'compile-types
     // Specifically, no need to watch nodemodules
     // But all other dev stuff is watched:
     gulp.watch('./src/**/*.html', ['move-static']);
-    gulp.watch('./src/scss/*.scss', ['compile-scss']);
+    gulp.watch('./src/scss/**/*.scss', ['compile-scss']);
     gulp.watch('./src/**/*.ts', ['compile-typescript']);
 });
