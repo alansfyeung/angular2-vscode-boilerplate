@@ -1,6 +1,7 @@
 // Magical Angular2 scss/ts dev compilers
 
 var gulp = require('gulp');
+var changed = require('gulp-changed');
 var sass = require('gulp-sass');
 var ts = require('gulp-typescript');
 var tsconf = require('./tsconfig.json');
@@ -16,7 +17,8 @@ gulp.task('move-libs', function() {
         'node_modules/@angular/**',
         'node_modules/rxjs/**',
         'node_modules/angular2-in-memory-web-api/**',
-        'node_modules/systemjs/**'
+        'node_modules/systemjs/**',
+        'node_modules/normalize.css/**'        // out on a limb here, guessing you like css resets
     ]; 
     gulp.src(npmModules, {base: 'node_modules'})
         .pipe(gulp.dest('dist/lib'))
@@ -42,6 +44,7 @@ gulp.task('compile-scss', function() {
 // Compile .ts wherever it is, preserve paths
 gulp.task('compile-typescript', function(){
     return gulp.src('src/**/*.ts')
+        .pipe(changed('dist', {extension: '.js'}))
         .pipe(ts(tsconf.compilerOptions))
         .pipe(gulp.dest('dist'))
 });
